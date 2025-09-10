@@ -3,42 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Quotes</title>
-  <!-- Mondiad Ads Script -->
-  <script async src="https://ss.mrmnd.com/static/ec371a5c-3614-4218-a7a9-18e21a8511d0.js"></script>
+  <title>Daily Quote</title>
   <style>
     body {
+      background: #121212;
+      color: white;
       font-family: Arial, sans-serif;
-      background: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
       text-align: center;
-      padding: 50px;
     }
     .quote-box {
-      background: white;
+      background: #1e1e1e;
       padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
       max-width: 400px;
-      margin: auto;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      background: #ff5722;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #e64a19;
+    }
+    .ad-space {
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <h1>🌟 Daily Quote 🌟</h1>
   <div class="quote-box">
+    <h2>🌟 Daily Quote 🌟</h2>
     <p id="quote">Loading...</p>
+    <button onclick="newQuote()">Get Quote</button>
+  </div>
+
+  <!-- Mondiad Ad -->
+  <div class="ad-space">
+    <p style="color: #aaa;">Advertisement</p>
+    <script async src="https://ss.mrmnd.com/static/ec371a5c-3614-4218-a7a9-18e21a8511d0.js"></script>
   </div>
 
   <script>
     const quotes = [
-      "The best way to predict the future is to create it.",
-      "Do something today that your future self will thank you for.",
-      "Dream big. Start small. Act now.",
+      "Believe in yourself and all that you are.",
+      "Every day is a second chance.",
+      "Dream it. Wish it. Do it.",
+      "Stay positive, work hard, make it happen.",
+      "Your only limit is your mind.",
+      "Small steps every day lead to big results.",
       "Happiness depends upon ourselves.",
-      "Turn your wounds into wisdom."
+      "Success doesn’t come from what you do occasionally, but from what you do consistently."
     ];
-    document.getElementById("quote").innerText = 
-      quotes[Math.floor(Math.random() * quotes.length)];
+
+    function dailyQuote() {
+      // One fixed quote for the day
+      const today = new Date();
+      const index = today.getDate() % quotes.length;
+      document.getElementById("quote").innerText = quotes[index];
+    }
+
+    function newQuote() {
+      // Random quote every time button is clicked
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      document.getElementById("quote").innerText = quotes[randomIndex];
+    }
+
+    // Load daily quote when page starts
+    window.onload = dailyQuote;
   </script>
 </body>
 </html>
