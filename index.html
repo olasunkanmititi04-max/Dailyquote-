@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Quotes</title>
+  <!-- Mondiad Ads Script -->
+  <script async src="https://ss.mrmnd.com/static/ec371a5c-3614-4218-a7a9-18e21a8511d0.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      text-align: center;
+      padding: 50px;
+    }
+    .quote-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 400px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌟 Daily Quote 🌟</h1>
+  <div class="quote-box">
+    <p id="quote">Loading...</p>
+  </div>
+
+  <script>
+    const quotes = [
+      "The best way to predict the future is to create it.",
+      "Do something today that your future self will thank you for.",
+      "Dream big. Start small. Act now.",
+      "Happiness depends upon ourselves.",
+      "Turn your wounds into wisdom."
+    ];
+    document.getElementById("quote").innerText = 
+      quotes[Math.floor(Math.random() * quotes.length)];
+  </script>
+</body>
+</html>
